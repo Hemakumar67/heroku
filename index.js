@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 var pdfUtil = require('pdf-to-text');
 var imgytil = require('image-to-text');
-var pdf_path = "/Users/avengers/Documents/node/pdf/Screenshot 2022-08-23 at 11.20.30 PM.png";
+var pdf_path = "./welcome.png";
 
 var Tesseract = require('tesseract.js');
 
-app.listen(8000,()=>{
-    console.log('first page')
+app.listen(8000, () => {
+  console.log('first page')
 })
 
 Tesseract.recognize(
@@ -15,7 +15,7 @@ Tesseract.recognize(
   'eng',
   { logger: m => console.log(m) }
 ).then(({ data: { text } }) => {
-  console.log('text',text);
+  console.log('text', text);
 })
 
 // pdfUtil.pdfToText(pdf_path, function(err, data) {
@@ -39,4 +39,4 @@ Tesseract.recognize(
 // });
 
 
- 
+
