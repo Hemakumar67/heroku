@@ -5,7 +5,7 @@ var imgytil = require('image-to-text');
 var pdf_path = "./welcome.png";
 
 var Tesseract = require('tesseract.js');
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   reader()
 })
 
