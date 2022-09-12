@@ -9,7 +9,8 @@ app.get('/', (req, res) => {
   reader()
 })
 
-app.listen(8000, () => {
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
   console.log('first page')
 })
 
