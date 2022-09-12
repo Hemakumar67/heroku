@@ -5,18 +5,24 @@ var imgytil = require('image-to-text');
 var pdf_path = "./welcome.png";
 
 var Tesseract = require('tesseract.js');
+app.use('/', (req, res) => {
+  reader()
+})
 
 app.listen(8000, () => {
   console.log('first page')
 })
 
-Tesseract.recognize(
-  `${pdf_path}`,
-  'eng',
-  { logger: m => console.log(m) }
-).then(({ data: { text } }) => {
-  console.log('text', text);
-})
+const reader = () => {
+  Tesseract.recognize(
+    `${pdf_path}`,
+    'eng',
+    { logger: m => console.log(m) }
+  ).then(({ data: { text } }) => {
+    console.log('text', text);
+  })
+}
+
 
 // pdfUtil.pdfToText(pdf_path, function(err, data) {
 //   if (err) throw(err);
